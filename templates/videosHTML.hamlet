@@ -1,0 +1,25 @@
+<xml>
+        <viddb>
+                $forall Entity movieId movie <- movies
+                        <poster>
+                                @{DownloadR $ moviePoster movie}
+                        <description>
+                                #{fromMaybe "EMPTY" $ movieDescription movie}
+                        <origtitle>
+                                #{movieTitle movie}
+                        <mpaa>
+                                #{fromMaybe "EMPTY" $ movieMpaa movie}
+                        <director>
+                                #{fromMaybe "EMPTY" $ movieDirector movie}
+                        <length>
+                                #{show $ fromMaybe -1 $ movieLength movie}
+                        <videocodec>
+                                #{fromMaybe "EMPTY" $ movieCodec movie}
+                        <actors>
+                                #{fromMaybe "EMPTY" $ movieActors movie}
+                        <year>
+                                #{movieYear movie}
+                        <genre>
+                                #{fromMaybe "EMPTY" $ movieGenre movie}
+                        <path>
+                                #{moviePath movie}

@@ -1,0 +1,7 @@
+stanzas:
+        - type: webapp
+          host: iMac
+          root: ..
+          exec: ../dist/build/HomeServer/HomeServer
+
+postgres: false

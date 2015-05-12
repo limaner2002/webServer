@@ -1,0 +1,47 @@
+h1
+    text-align: center;
+    color: white;
+
+body
+    background-color: black;
+    padding: 10px;
+    margin: 0.25in;
+
+.grid-container
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 920px;
+    max-width: 1200px;
+    margin: 0 auto 24px auto;
+    background-color: #211f20;
+    box-shadow: 0px 5px 45px #211f20;
+
+.grid-entry, .text-entry
+    float: left;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0 auto;
+
+.grid-entry
+    width: 210px;
+    height: 350px;
+
+.text-entry
+    width: 105px;
+
+a:link
+    color: white;
+
+a:visited
+    color: 9c31ff;
+
+img
+    display: inline-block;
+    max-width: 210px;
+    max-height: 270px;
+    width: auto;
+    height: auto;

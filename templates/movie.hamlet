@@ -1,0 +1,39 @@
+<h1> #{movieTitle movie}
+<table>
+        <tr>
+                <td> Title
+                <td> #{movieTitle movie}
+        <tr>
+                <td> Year
+                <td> #{movieYear movie}
+        <tr>
+                <td> Genre
+                <td> #{fromMaybe "EMPTY" $ movieGenre movie}
+        <tr>
+                <td> Rating
+                <td> #{fromMaybe "EMPTY" $ movieMpaa movie}
+        <tr>
+                <td> Director
+                <td> #{fromMaybe "EMPTY" $ movieDirector movie}
+        <tr>
+                <td> Actors
+                <td> #{fromMaybe "EMPTY" $ movieActors movie}
+        <tr>
+                <td> Description
+                <td> #{fromMaybe "EMPTY" $ movieDescription movie}
+        <tr>
+                <td> Path
+                <td> #{moviePath movie}
+        <tr>
+                <td> Codec
+                <td> #{fromMaybe "EMPTY" $ movieCodec movie}
+        <tr>
+                <td> Length
+                <td> #{show $ fromMaybe -1 $ movieLength movie}
+        <tr>
+                <td> Poster
+                <td> #{moviePoster movie}
+        <tr>
+                <td> Added
+                <td> #{show $ movieAdded movie}
+<hr>

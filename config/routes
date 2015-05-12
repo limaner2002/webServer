@@ -1,0 +1,11 @@
+/static StaticR Static appStatic
+/auth   AuthR   Auth   getAuth
+
+/favicon.ico FaviconR GET
+/robots.txt RobotsR GET
+
+/ HomeR GET POST
+/movies MoviesR GET
+/movies/info/#MovieId MovieR GET
+/movies/download/#Text DownloadR GET
+/movies/videos.xml VideosXMLR GET

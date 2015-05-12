@@ -1,0 +1,7 @@
+<viddb>
+        $if null movies
+            <p>There are no movies
+        $else
+                $forall movie <- movies
+                        <movie>
+                                ^{movieNodes movie}

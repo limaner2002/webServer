@@ -1,0 +1,11 @@
+<h1> Videos
+$if null movies
+    <p> There are no movies yet
+$else
+    <div class="grid-container">
+         $forall Entity movieId movie <- movies
+                 <div class="grid-entry">
+                      <a href=@{DownloadR $ moviePath movie}>
+                         <img src=@{DownloadR $ moviePoster movie}><br>
+                      <a href=@{MovieR movieId}>#{movieTitle movie}
+<hr>

@@ -1,0 +1,27 @@
+User
+    ident Text
+    password Text Maybe
+    UniqueUser ident
+    deriving Typeable
+Email
+    email Text
+    user UserId Maybe
+    verkey Text Maybe
+    UniqueEmail email
+Movie
+    title Text maxlen=20
+    year Int maxlen=11
+    genre Text Maybe maxlen=128
+    mpaa Text Maybe maxlen=16
+    director Text Maybe maxlen=128
+    actors Text Maybe maxlen=512
+    description Text Maybe maxlen=512
+    path Text maxlen=128
+    codec Text Maybe maxlen=32
+    length Int Maybe maxlen=11
+    poster Text maxlen=128
+    added UTCTime default=CURRENT_TIMESTAMP
+    Primary title year
+    deriving
+
+ -- By default this file is used in Model.hs (which is imported by Foundation.hs)
