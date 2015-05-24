@@ -26,6 +26,7 @@ library
                      Handler.Movie
                      Handler.Download
                      Handler.VideosXML
+                     Handler.MovieFormR
 
     if flag(dev) || flag(library-only)
         cpp-options:   -DDEVELOPMENT

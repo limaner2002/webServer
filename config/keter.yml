@@ -1,6 +1,6 @@
 stanzas:
         - type: webapp
-          host: iMac
+          host: greenhern.redirectme.net
           root: ..
           exec: ../dist/build/HomeServer/HomeServer
 

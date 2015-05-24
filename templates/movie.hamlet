@@ -37,3 +37,6 @@
                 <td> Added
                 <td> #{show $ movieAdded movie}
 <hr>
+
+<form method=post>
+      <input type=submit value="EDIT">

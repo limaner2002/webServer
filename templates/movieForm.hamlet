@@ -1,0 +1,6 @@
+<h1> Add New Movie
+<form method=post enctype=#{enctype}>
+      <table>
+             ^{movieWidget}
+      <div>
+      <input type=submit value="Add Movie">

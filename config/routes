@@ -6,6 +6,7 @@
 
 / HomeR GET POST
 /movies MoviesR GET
-/movies/info/#MovieId MovieR GET
+/movies/info/#MovieId MovieR GET POST
 /movies/download/#Text DownloadR GET
 /movies/videos.xml VideosXMLR GET
+/movies/form MovieFormRR GET POST
