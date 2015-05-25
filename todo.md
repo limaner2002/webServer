@@ -1,1 +1,2 @@
 - [ ] Add option for video path prefix
+- [ ] Create a protocol that can synchronise the databases

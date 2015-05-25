@@ -9,7 +9,7 @@ Email
     verkey Text Maybe
     UniqueEmail email
 Movie
-    title Text maxlen=20
+    title Text maxlen=128
     year Int maxlen=11
     genre Text Maybe maxlen=128
     mpaa Text Maybe maxlen=16
