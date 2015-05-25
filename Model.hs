@@ -4,6 +4,7 @@ module Model where
 
 import ClassyPrelude.Yesod
 import Database.Persist.Quasi
+import Yesod.Auth.HashDB (HashDBUser(..))
 
 import qualified Data.Text as T
 
@@ -26,3 +27,7 @@ instance PathPiece MovieId
         Just $ result
        where
          [maybeYear, title] = T.splitOn (pack "-") t
+
+instance HashDBUser User where
+    userPasswordHash = Just . userPassword
+    setPasswordHash h p = p { userPassword = h }

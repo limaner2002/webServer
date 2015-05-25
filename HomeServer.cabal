@@ -93,6 +93,8 @@ library
                  , xml-hamlet
                  , xml-conduit
                  , xml2html
+                 , yesod-auth-hashdb
+                 , pwstore-fast
 
 executable         HomeServer
     if flag(library-only)

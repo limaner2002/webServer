@@ -4,7 +4,7 @@ import Import.NoFoundation
 import Database.Persist.Sql (ConnectionPool, runSqlPool)
 import Text.Hamlet          (hamletFile)
 import Text.Jasmine         (minifym)
-import Yesod.Auth.BrowserId (authBrowserId)
+import Yesod.Auth.HashDB (authHashDB, getAuthIdHashDB)
 import Yesod.Default.Util   (addStaticContentExternal)
 import Yesod.Core.Types     (Logger)
 import qualified Yesod.Core.Unsafe as Unsafe
@@ -72,6 +72,7 @@ instance Yesod App where
     isAuthorized (AuthR _) _ = return Authorized
     isAuthorized FaviconR _ = return Authorized
     isAuthorized RobotsR _ = return Authorized
+    isAuthorized MovieFormRR _ = isAdmin
     -- Default to Authorized for now.
     isAuthorized _ _ = return Authorized
 
@@ -103,6 +104,13 @@ instance Yesod App where
 
     makeLogger = return . appLogger
 
+isAdmin = do
+  mu <- maybeAuthId
+  return $ case mu of
+  	     Nothing -> AuthenticationRequired
+	     -- Just "admin" -> Authorized
+             Just _ -> Authorized -- Unauthorized "You must be an admin to perform this action."
+
 -- How to run database actions.
 instance YesodPersist App where
     type YesodPersistBackend App = SqlBackend
@@ -122,17 +130,19 @@ instance YesodAuth App where
     -- Override the above two destinations when a Referer: header is present
     redirectToReferer _ = True
 
-    getAuthId creds = runDB $ do
-        x <- getBy $ UniqueUser $ credsIdent creds
-        case x of
-            Just (Entity uid _) -> return $ Just uid
-            Nothing -> Just <$> insert User
-                { userIdent = credsIdent creds
-                , userPassword = Nothing
-                }
+    -- getAuthId creds = runDB $ do
+    --     x <- getBy $ UniqueUser $ credsIdent creds
+    --     case x of
+    --         Just (Entity uid _) -> return $ Just uid
+    --         Nothing -> Just <$> insert User
+    --             { userIdent = credsIdent creds
+    --             , userPassword = Nothing
+    --             }
+
+    getAuthId creds = getAuthIdHashDB AuthR (Just . UniqueUser) creds
 
     -- You can add other plugins like BrowserID, email or OAuth here
-    authPlugins _ = [authBrowserId def]
+    authPlugins _ = [authHashDB (Just . UniqueUser)]
 
     authHttpManager = getHttpManager
 

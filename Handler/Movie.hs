@@ -5,6 +5,7 @@ import Handler.MovieFormR (movieForm)
 
 postMovieR :: MovieId -> Handler Html
 postMovieR movieId = do
+  uid <- requireAuthId
   movie <- runDB $ get404 movieId
   (movieWidget, enctype) <- generateFormPost $ movieForm $ Just movie
   defaultLayout $ do

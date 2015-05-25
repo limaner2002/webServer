@@ -1,6 +1,6 @@
 stanzas:
         - type: webapp
-          host: greenhern.redirectme.net
+          host: localhost
           root: ..
           exec: ../dist/build/HomeServer/HomeServer
 
